@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Oktober | Bongaigaon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffeedd 0%, #f5c7f7 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 36px 44px 16px 44px;
+            background: rgba(255,255,255,0.92);
+            border-bottom: 1px solid #f5c7f7;
+            box-shadow: 0 2px 28px #c199e691;
+        }
+        header .logo {
+            font-size: 2.2rem;
+            color: #800080;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            font-weight: 900;
+        }
+        header .logo span {
+            margin-right: 10px;
+            font-size: 2.4rem;
+            animation: bounce 1.7s infinite alternate;
+        }
+        @keyframes bounce {
+            from {transform: translateY(0);}
+            to {transform: translateY(-10px);}
+        }
+        nav a {
+            color: #2e0249;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-bottom: 2.5px solid transparent;
+            transition: color 0.3s, border 0.2s;
+        }
+        nav a:hover {
+            color: #D7263D;
+            border-bottom: 2.5px solid #d7263d;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 60px 46px 60px;
+            gap: 56px;
+        }
+        .hero-text {
+            flex: 1.5;
+        }
+        .hero-text h1 {
+            font-size: 2.7rem;
+            color: #2e0249;
+            margin: 0 0 16px 0;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+        .hero-text p {
+            font-size: 1.23rem;
+            color: #484848;
+            margin-bottom: 26px;
+        }
+        .action-btn {
+            padding: 14px 48px;
+            background: linear-gradient(90deg,#800080 65%, #d7263d 110%);
+            color: #fff;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 32px;
+            box-shadow: 0 8px 32px #80008044;
+            cursor: pointer;
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: transform 0.14s, background 0.24s;
+            animation: btnpop 1.7s infinite alternate;
+        }
+        .action-btn:hover {
+            background: linear-gradient(90deg,#d7263d 55%, #800080 100%);
+            transform: scale(1.06);
+        }
+        @keyframes btnpop {
+            from {box-shadow: 0 8px 32px #80008044;}
+            to {box-shadow: 0 18px 48px #d7263d44;}
+        }
+        .hero-img {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .cartoon-chef {
+            width: 330px;
+            height: 330px;
+            border-radius: 22px;
+            border: 6px solid #fff0f8;
+            box-shadow: 0 0 32px #f5c7f7bb;
+            position: relative;
+            overflow: hidden;
+            background: #f8dfff;
+            animation: cartoonmove 3s infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cartoon-chef img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 22px;
+            display: block;
+        }
+        @keyframes cartoonmove {
+            from {transform:scale(1) rotate(-4deg);}
+            to {transform: scale(1.025) rotate(4deg);}
+        }
+        .section {
+            padding: 54px 17px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+        .menu-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 28px;
+            margin-bottom: 30px;
+        }
+        .menu-card {
+            flex: 1 1 280px;
+            max-width: 340px;
+            background: #fff;
+            padding: 20px 24px 26px 24px;
+            border-radius: 25px;
+            box-shadow: 0 6px 32px #b68ac188;
+            text-align: center;
+            margin-bottom: 8px;
+            transition: transform 0.19s, box-shadow 0.18s;
+            position: relative;
+            animation: menuFlip 1s cubic-bezier(.53,.4,.41,1.13);
+        }
+        .menu-card:hover {
+            transform: scale(1.06) rotate(-1.5deg);
+            box-shadow: 0 12px 48px #d7263d2c;
+            z-index: 4;
+        }
+        @keyframes menuFlip {
+            from {transform: rotateY(80deg) scale(0.98);}
+            to {transform: rotateY(0) scale(1);}
+        }
+        .menu-card img {
+            width: 80%;
+            max-width: 220px;
+            height: 140px;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px #f5c7f7aa;
+            margin-bottom: 14px;
+            background: #f5f5f5;
+            object-fit: cover;
+        }
+        .menu-card h3 {
+            margin: 8px 0 8px 0;
+            color: #800080;
+            font-size: 1.34rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .menu-card p {
+            color: #484848;
+            font-size: 1.02rem;
+            margin: 0 0 4px 0;
+        }
+        .menu-card .emoji {
+            font-size: 1.7rem;
+            margin-bottom: 2px;
+            animation: emojiWave 1.3s infinite alternate;
+        }
+        @keyframes emojiWave {
+            from {transform: rotate(-10deg);}
+            to {transform: rotate(10deg);}
+        }
+        .info-table {
+            width: 100%;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 18px #b68ac166;
+        }
+        .info-table th, .info-table td {
+            padding: 18px;
+            background: #fff;
+            font-size: 1.1rem;
+            color: #2e0249;
+            text-align: left;
+        }
+        .info-table th {
+            background: #ede1fe;
+        }
+        .map-container {
+            margin-top: 24px;
+            text-align: center;
+        }
+        .map-iframe {
+            border: none;
+            width: 100%;
+            max-width: 520px;
+            height: 260px;
+            border-radius: 18px;
+            box-shadow: 0 2px 24px #ffcbf7a2;
+        }
+        footer {
+            margin-top: 36px;
+            background: #fff3fc;
+            text-align: center;
+            padding: 22px;
+            font-size: 1rem;
+            color: #a970b7;
+        }
+        /* --- FULL RESPONSIVE --- */
+        @media (max-width: 1200px) {
+            .section { max-width: 1000px; }
+            .hero-img, .cartoon-chef { width: 280px; height: 280px; }
+            .cartoon-chef img { border-radius: 18px; }
+        }
+        @media (max-width: 900px) {
+            body { font-size: 95%; }
+            header {
+                flex-direction: column;
+                padding: 16px 10px;
+                align-items: center;
+                box-shadow: none;
+            }
+            header .logo {
+                font-size: 1.8rem;
+                margin-bottom: 12px;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+                border-bottom: none;
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                width: 100%;
+            }
+            .hero {
+                flex-direction: column;
+                padding: 24px 12px 36px 12px;
+                gap: 30px;
+                text-align: center;
+            }
+            .hero-text h1 { font-size: 2rem; }
+            .hero-text p {
+                font-size: 1rem;
+                margin: 0 auto 20px auto;
+                max-width: 320px;
+            }
+            .action-btn {
+                padding: 12px 40px;
+                font-size: 1.1rem;
+            }
+            .hero-img {
+                flex: none;
+                width: 180px;
+                height: 180px;
+                margin: 0 auto;
+            }
+            .cartoon-chef {
+                width: 180px;
+                height: 180px;
+                border-radius: 16px;
+            }
+            .cartoon-chef img { border-radius: 16px; }
+            .section { padding: 32px 12px; }
+            .menu-list { gap: 15px; justify-content: center; }
+            .menu-card {
+                flex: 1 1 90%;
+                max-width: 90%;
+                margin: 0 auto 28px auto;
+                transform: none !important;
+                box-shadow: 0 8px 24px #d7263d33;
+                transition: none !important;
+            }
+            .menu-card:hover {
+                transform: none !important;
+                box-shadow: 0 8px 24px #d7263d33;
+                z-index: 1;
+            }
+            .info-table th, .info-table td {
+                padding: 12px 10px;
+                font-size: 1rem;
+            }
+            .map-iframe {
+                height: 180px;
+                max-width: 100%;
+            }
+            footer {
+                font-size: 0.9rem;
+                padding: 14px 10px;
+            }
+        }
+        @media (max-width: 500px) {
+            .hero-img { width: 130px; height: 130px; }
+            .cartoon-chef { width: 130px; height: 130px; border-radius: 11px; }
+            .cartoon-chef img { border-radius: 11px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>☕</span> Cafe Oktober
+        </div>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Visit Us</a>
+        </nav>
+    </header>
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Enjoy Modern Flavours<br> at Bongaigaon’s Fun Spot!</h1>
+            <p>Hang out, click selfies, or share a flavourful moment — Cafe Oktober is your GenZ-chic, creative hideout in town. Foodies & Instagrammers welcome!</p>
+            <button class="action-btn" id="bookTableBtn">Book a Table</button>
+        </div>
+        <div class="hero-img">
+            <div class="cartoon-chef">
+                <img src="your-image.jpg" alt="Cartoon Chef or Logo">
+            </div>
+        </div>
+    </div>
+
+    <section class="section" id="menu">
+        <h2 style="color:#D7263D;text-align:center;">Signature Menu</h2>
+        <div class="menu-list">
+            <div class="menu-card">
+                <img src="Cappuccino.png" alt="Cappuccino"/>
+                <div class="emoji">☕️</div>
+                <h3>Cappuccino</h3>
+                <p>Delicious Cappuccino served fresh.</p>
+            </div>
+            <div class="menu-card">
+                <img src="KitKat Shake.png" alt="KitKat Shake"/>
+                <div class="emoji">🥤</div>
+                <h3>KitKat Shake</h3>
+                <p>Chilled and rich, topped with real KitKat.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Drums of Heaven.png" alt="Drums of Heaven"/>
+                <div class="emoji">🍗</div>
+                <h3>Drums of Heaven</h3>
+                <p>Juicy chicken wings tossed in spicy Asian sauce.</p>
+            </div>
+            <div class="menu-card">
+                <img src="American Crispy Corn.png" alt="American Crispy Corn"/>
+                <div class="emoji">🌽</div>
+                <h3>American Crispy Corn</h3>
+                <p>Crunchy, zesty corn snack, great for sharing.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Crispy Honey Chicken.png" alt="Crispy Honey Chicken"/>
+                <div class="emoji">🍯</div>
+                <h3>Crispy Honey Chicken</h3>
+                <p>Golden-fried chicken in sweet honey glaze.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Spaghetti Alio Olio.png" alt="Spaghetti Alio Olio"/>
+                <div class="emoji">🍝</div>
+                <h3>Spaghetti Alio Olio</h3>
+                <p>Authentic Italian pasta with garlic & olive oil.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Mocktail.png" alt="Mocktail"/>
+                <div class="emoji">🍹</div>
+                <h3>Mocktail</h3>
+                <p>Refreshing blends & creative flavors, no alcohol.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Baby Corn Manchurian Dry.png" alt="Baby Corn Manchurian Dry"/>
+                <div class="emoji">👶🌽</div>
+                <h3>Baby Corn Manchurian Dry</h3>
+                <p>Baby corn in signature Indo-Chinese spices.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Sandwiches.png" alt="Sandwiches"/>
+                <div class="emoji">🥪</div>
+                <h3>Sandwiches</h3>
+                <p>Fresh bread, crisp veggies, & special spreads.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Chicken Quesadilla.png" alt="Chicken Quesadilla"/>
+                <div class="emoji">🌯</div>
+                <h3>Chicken Quesadilla</h3>
+                <p>Crisp tortilla, chicken, mozzarella and herbs.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Veg Pulao.png" alt="Veg Pulao"/>
+                <div class="emoji">🍚</div>
+                <h3>Veg Pulao</h3>
+                <p>Fragrant rice loaded with garden vegetables.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Paneer Tikka.png" alt="Paneer Tikka"/>
+                <div class="emoji">🧀</div>
+                <h3>Paneer Tikka</h3>
+                <p>Grilled cottage cheese with classic spices.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Chicken Lasagna.png" alt="Chicken Lasagna"/>
+                <div class="emoji">🍲</div>
+                <h3>Chicken Lasagna</h3>
+                <p>Layers of pasta, chicken, sauce and cheese.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Cold Coffee.png" alt="Cold Coffee"/>
+                <div class="emoji">🧊☕️</div>
+                <h3>Cold Coffee</h3>
+                <p>Chilled blend, bold and energizing.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Icecream.png" alt="Icecream"/>
+                <div class="emoji">🍨</div>
+                <h3>Icecream</h3>
+                <p>Delightful scoops, various flavours.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Fried Momo.png" alt="Fried Momo"/>
+                <div class="emoji">🥟</div>
+                <h3>Fried Momo</h3>
+                <p>Crispy dumplings with savoury fillings.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Cappuccino Mango Smoothie Chocolate Shake.png" alt="Cappuccino Mango Smoothie Chocolate Shake"/>
+                <div class="emoji">🍹</div>
+                <h3>Cappuccino Mango Smoothie Chocolate Shake</h3>
+                <p>Fusion shake: mango, coffee, chocolate - all in one!</p>
+            </div>
+            <div class="menu-card">
+                <img src="Cappuccino Veg Sandwich Oreo Shake.png" alt="Cappuccino Veg Sandwich Oreo Shake"/>
+                <div class="emoji">🥤</div>
+                <h3>Cappuccino Veg Sandwich Oreo Shake</h3>
+                <p>Innovative combo: sandwich meets Oreo shake!</p>
+            </div>
+            <div class="menu-card">
+                <img src="Chicken Tandoori.png" alt="Chicken Tandoori"/>
+                <div class="emoji">🍢</div>
+                <h3>Chicken Tandoori</h3>
+                <p>Clay oven-roasted chicken, spiced to perfection.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Butter Chicken.png" alt="Butter Chicken"/>
+                <div class="emoji">🍛</div>
+                <h3>Butter Chicken</h3>
+                <p>Rich, creamy, mildly spiced chicken curry.</p>
+            </div>
+            <div class="menu-card">
+                <img src="Butter Naan.png" alt="Butter Naan"/>
+                <div class="emoji">🥖</div>
+                <h3>Butter Naan</h3>
+                <p>Soft, buttery leavened flatbread—perfect for pairing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2 style="color:#2e0249; text-align:center;">About Cafe Oktober</h2>
+        <p>
+            Cafe Oktober is a vibrant, modern cafe and restaurant located in North Bongaigaon, Assam. Known for its cool décor, lively vibe, and a menu that mixes the best of continental and local flavors, it's a top pick for hangouts, group parties, or a cozy date.
+        </p>
+        <table class="info-table">
+            <tr>
+                <th>Address</th>
+                <td>Chapaguri Road, near Agarwala Hospital, North Bongaigaon, Bongaigaon, Assam 783380</td>
+            </tr>
+            <tr>
+                <th>Opening Hours</th>
+                <td>10:00 AM – 10:00 PM (Monday to Sunday)</td>
+            </tr>
+            <tr>
+                <th>Special Features</th>
+                <td>Live Music, Cozy Ambiance, Photo-friendly interiors, Takeaway, Delivery</td>
+            </tr>
+        </table>
+    </section>
+    <section class="section" id="contact">
+        <h2 style="color:#D7263D;text-align:center;">Find Us</h2>
+        <div class="map-container">
+            <iframe class="map-iframe"
+                src="https://www.google.com/maps?q=Chapaguri+Road,+Bongaigaon,+Assam+783380&output=embed"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div style="text-align:center; margin-top:16px;">
+            <p>Follow us on <a href="https://www.instagram.com/cafe_oktober_bongaigaon/" target="_blank" style="color:#800080; text-decoration:underline;">Instagram</a> &mdash; See what's trending!</p>
+        </div>
+    </section>
+    <footer>
+        <span>© 2025 Cafe Oktober &mdash; Uniquely Bongaigaon.</span>
+    </footer>
+
+    <script>
+      // Book a Table functionality: initiates a direct phone call
+      document.getElementById('bookTableBtn').onclick = function() {
+        window.location.href = 'tel:7002334058';
+      };
+    </script>
+</body>
+</html>
